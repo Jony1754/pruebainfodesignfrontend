@@ -17,7 +17,6 @@ export const Modal: React.FC<ModalProps> = ({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Simulando envío a una API
     console.log('Enviando datos:', formData);
     onClose();
   };

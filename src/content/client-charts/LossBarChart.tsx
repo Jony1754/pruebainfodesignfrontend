@@ -12,17 +12,16 @@ import {
 
 interface DataItem {
   Linea: string;
-  consumo_residencial: number;
-  consumo_comercial: number;
-  consumo_industrial: number;
-  // ... otros campos
+  perdidas_residencial: number;
+  perdidas_comercial: number;
+  perdidas_industrial: number;
 }
 
-interface StackedBarChartProps {
+interface LossBarChartProps {
   data: DataItem[];
 }
 
-const StackedBarChart: React.FC<StackedBarChartProps> = ({ data }) => {
+const LossBarChart: React.FC<LossBarChartProps> = ({ data }) => {
   return (
     <ResponsiveContainer width='100%' height={400}>
       <BarChart
@@ -37,14 +36,15 @@ const StackedBarChart: React.FC<StackedBarChartProps> = ({ data }) => {
         <CartesianGrid strokeDasharray='3 3' />
         <XAxis dataKey='Linea' />
         <YAxis />
+
         <Tooltip />
         <Legend />
-        <Bar dataKey='consumo_residencial' stackId='a' fill='#8884d8' />
-        <Bar dataKey='consumo_comercial' stackId='a' fill='#82ca9d' />
-        <Bar dataKey='consumo_industrial' stackId='a' fill='#ffc658' />
+        <Bar dataKey='perdidas_residencial' fill='#8884d8' name='Residencial' />
+        <Bar dataKey='perdidas_comercial' fill='#82ca9d' name='Comercial' />
+        <Bar dataKey='perdidas_industrial' fill='#ffc658' name='Industrial' />
       </BarChart>
     </ResponsiveContainer>
   );
 };
 
-export default StackedBarChart;
+export default LossBarChart;

@@ -1,16 +1,18 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
-import { fetchHistorialByClient } from '../utils/fetchHistoricalByClient';
+import { fetchTramosCliente } from '../utils/fetchTramosCliente';
 import { Input } from '../interfaces';
 import { Modal } from '../components/Modal';
 import DatePicker from 'react-datepicker';
-import ClientChart from '../content/client-charts';
 import CustomTable from '../components/CustomTable';
-const HistoricalByClient = () => {
+import GroupedColumnChart from '../content/GroupedColumnChart';
+const TramosClient = () => {
   const [data, setData] = useState([]);
   const [showGraph, setShowGraph] = useState(true);
   const [startDate, setStartDate] = useState(new Date('2010-01-01'));
   const [endDate, setEndDate] = useState(new Date('2014-01-31'));
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const inputs: Input[] = [
     { name: 'firstName', label: 'First Name', type: 'text' },
     { name: 'email', label: 'Email', type: 'email' },
@@ -18,7 +20,7 @@ const HistoricalByClient = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const result = await fetchHistorialByClient(startDate, endDate);
+      const result = await fetchTramosCliente(startDate, endDate);
       setData(result);
     }
 
@@ -30,6 +32,7 @@ const HistoricalByClient = () => {
         accessor: key,
       }))
     : [];
+
   return (
     <div>
       <Modal
@@ -37,7 +40,7 @@ const HistoricalByClient = () => {
         onClose={() => setIsModalOpen(false)}
         inputs={inputs}
       />
-      <h1 className='text-xl font-bold mb-4'>Histórico por cliente</h1>
+      <h1 className='text-xl font-bold mb-4'>Análisis de pérdidas por tramo</h1>
       <button
         type='button'
         onClick={() => {
@@ -99,11 +102,10 @@ const HistoricalByClient = () => {
         </div>
       </div>
 
-      {showGraph && <ClientChart data={data} />}
-
+      {showGraph && <GroupedColumnChart data={data} />}
       <CustomTable columns={columns} data={data} />
     </div>
   );
 };
 
-export default HistoricalByClient;
+export default TramosClient;
