@@ -1,27 +1,58 @@
-# React + TypeScript + Vite
+# Prueba Técnica - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es el frontend para la prueba técnica de Infodesign. Está construido con React y Vite.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Visualización de datos históricos relacionados con el consumo, costos y pérdidas en diferentes tramos.
+- Gráficos interactivos para representar y comparar datos.
+- Selección de fechas para filtrar datos históricos.
 
-## Expanding the ESLint configuration
+## Instalación y Uso
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Clonar el repositorio:**
 
-- Configure the top-level `parserOptions` property like this:
+   ```bash
+   git clone [URL_DEL_REPOSITORIO]
+   cd [NOMBRE_DEL_DIRECTORIO]
+   ```
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+2. **Instalar dependencias:**
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   ```bash
+   npm install
+   ```
+
+3. **Configurar las variables de entorno:**
+
+   Copia el archivo `.env.example` a un nuevo archivo llamado `.env` y configura las variables según tu entorno.
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Ejecutar en modo desarrollo:**
+
+   ```bash
+   npm run dev
+   ```
+
+   Esto iniciará el servidor de desarrollo y abrirá la aplicación en tu navegador predeterminado.
+
+5. **Construir para producción:**
+
+   ```bash
+   npm run build
+   ```
+
+   Esto generará una versión optimizada de la aplicación en el directorio `dist`.
+
+---
+
+7. **Repositorio del backend:**
+
+   El frontend se comunica con un servidor backend para obtener y manipular datos. Puedes encontrar el código fuente y más detalles del backend en el siguiente repositorio: [pruebainfodesignbackend](https://github.com/Jony1754/pruebainfodesignbackend).
+
+8. **Despliegue**
+
+   Una version en vivo se puede probar sin necesidad de instalar nada en el siguiente enlace: [pruebainfodesignfrontend](https://pruebainfodesignfrontend-ncs0ch7kz-jony1754.vercel.app/).
