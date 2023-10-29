@@ -19,8 +19,9 @@ const CustomTable: React.FC<CustomTableProps> = ({ columns, data }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  const handleChangePage = (newPage: number) => {
+  const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
+    console.log('event', event);
   };
 
   const handleChangeRowsPerPage = (

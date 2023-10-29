@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { fetchTramosCliente } from '../utils/fetchTramosCliente';
 import { Input } from '../interfaces';

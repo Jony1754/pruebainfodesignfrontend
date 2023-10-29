@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card, CardContent, Grid } from '@mui/material';
 import DonutChart from '../content/CustomPieChart';
 import HeatmapChart from '../content/HeatMap';
